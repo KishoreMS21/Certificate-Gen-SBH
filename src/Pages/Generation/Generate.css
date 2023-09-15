@@ -1,0 +1,102 @@
+/* Reset some default browser styles */
+body,
+h1,
+h2,
+p,
+ul,
+li,
+button,
+select {
+  margin: 0;
+  padding: 0;
+}
+
+/* Apply a background color to the whole page */
+/* Update the body to set the background image */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://imgs.search.brave.com/y0Ppd2cgDSwHqUWa0uKR2D6mWl2QhnbNbclKB7gSUEg/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvbGVh/cm5pbmctYmFja2dy/b3VuZC0xY2p5aGU2/YXNhMmFmdzg0Lmpw/Zw');
+    background-size: cover; /* This will cover the entire background */
+    background-repeat: no-repeat; /* Prevent image repetition */
+    background-position: center; /* Center the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+
+/* Container for the card and select box */
+.container {
+  background-color: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 400px;
+  max-width: 100%;
+}
+
+.selection{
+    font-size: 30px;
+}
+
+/* Select box styles */
+.select-container {
+  margin-bottom: 20px;
+}
+
+.select-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.select-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  width: 100%;
+}
+
+/* Card styles */
+.card {
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 10px 0;
+  text-align: left;
+}
+
+.card h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 16px;
+  color: #333;
+}
+
+.card-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.card-button:hover {
+  background-color: #0056b3;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .container {
+    width: 90%;
+  }
+}
