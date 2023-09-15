@@ -5,6 +5,7 @@ body {
 .certificate-container {
     padding: 50px;
     width: 1024px;
+    margin-top: 250px;
 }
 .certificate {
     border: 20px solid #0C5280;
@@ -73,9 +74,6 @@ height: 100px;
     margin-bottom: 0px;
 
 }
-
-
-
 
 
 

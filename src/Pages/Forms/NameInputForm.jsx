@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './NameInputForm.css'; // Import your CSS file for styling
 
 function NameInputForm({ onNameChange }) {
   const [name, setName] = useState('');
@@ -13,17 +14,18 @@ function NameInputForm({ onNameChange }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form className="name-input-form" onSubmit={handleSubmit}>
+      <label className="name-label">
         Student Name:
         <input
           type="text"
           value={name}
           onChange={handleNameChange}
           placeholder="Enter student name"
+          className="name-input"
         />
       </label>
-      <button type="submit">Update Name</button>
+      <button type="submit" className="submit-button">Update Name</button>
     </form>
   );
 }

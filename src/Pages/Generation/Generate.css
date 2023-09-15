@@ -15,16 +15,20 @@ select {
 /* Update the body to set the background image */
 body {
     font-family: Arial, sans-serif;
-    background-image: url('https://imgs.search.brave.com/y0Ppd2cgDSwHqUWa0uKR2D6mWl2QhnbNbclKB7gSUEg/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvbGVh/cm5pbmctYmFja2dy/b3VuZC0xY2p5aGU2/YXNhMmFmdzg0Lmpw/Zw');
-    background-size: cover; /* This will cover the entire background */
-    background-repeat: no-repeat; /* Prevent image repetition */
+    background-image: url('https://imgs.search.brave.com/y0Ppd2cgDSwHqUWa0uKR2D6mWl2QhnbNbclKB7gSUEg/rs:fit:860:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvbGVh/cm5pbmctYmFja2dy/b3VuZC0xY2p5aGU2/YXNhMmFmdzg0Lmpw/Zw'); 
+    background-size:cover;  
+    background-repeat: repeat;
+    /* background-color: #dbd8d8; */
     background-position: center; /* Center the image */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
   }
+
+  .bgImg{
   
+  }
 
 /* Container for the card and select box */
 .container {
@@ -35,6 +39,7 @@ body {
   text-align: center;
   width: 400px;
   max-width: 100%;
+
 }
 
 .selection{

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './Generate.css';
 import Login from '../Login/Login';
+import Verify from '../Verify/Verify';
+import { Link } from 'react-router-dom';
 
 const Card = ({ title, content, className, buttonText1, buttonText2, onButtonClick }) => (
   <div className={`card ${className}`}>
@@ -20,6 +22,7 @@ const Card = ({ title, content, className, buttonText1, buttonText2, onButtonCli
 const Generate = () => {
   const [selectedOption, setSelectedOption] = useState('student');
   const [buttonClicked, setButtonClicked] = useState(false);
+  const [verify, setVerify] = useState(false);
 
   const handleOptionChange = (e) => {
     setSelectedOption(e.target.value);
@@ -28,6 +31,10 @@ const Generate = () => {
   const handleButtonClick = () => {
     // Handle the button click event here
     setButtonClicked(true);
+  };
+  const verifyClick = () => {
+    // Handle the button click event here
+    setVerify(true);
   };
 
   let buttonText1 = '';
@@ -50,8 +57,19 @@ const Generate = () => {
       </div>
     );
   }
+  if (verify) {
+    return (
+      <div className="container">
+<Verify/>
+      </div>
+    );
+  }
+
+  
+
 
   return (
+    <div className="bgImg">
     <div className="container">
       <div className="option-select">
         <label className="selection" htmlFor="option-select">
@@ -70,13 +88,15 @@ const Generate = () => {
       </div>
       <div className="card-container">
         {selectedOption === 'student' && (
+        <Link to="/verify">
           <Card
             title="Validate"
             content="You can VERIFY your certificate easily by clicking below"
             className="student-card"
             buttonText1={buttonText1}
-            onButtonClick={handleButtonClick}
+            onButtonClick={verifyClick}
           />
+          </Link>
         )}
         {selectedOption === 'government' && (
           <Card
@@ -96,16 +116,19 @@ const Generate = () => {
               buttonText1={buttonText1}
               onButtonClick={handleButtonClick}
             />
-            <Card
-              title="Validate"
-              content="You can VERIFY your certificate easily by clicking below"
-              className="student-card"
-              buttonText1={buttonText2}
-              onButtonClick={handleButtonClick}
-            />
+            <Link to="/verify">
+          <Card
+            title="Validate"
+            content="You can VERIFY your certificate easily by clicking below"
+            className="student-card"
+            buttonText1={buttonText2}
+            onButtonClick={verifyClick}
+          />
+          </Link>
           </>
         )}
       </div>
+    </div>
     </div>
   );  
 };

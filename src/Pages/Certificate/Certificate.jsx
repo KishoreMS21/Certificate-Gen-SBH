@@ -2,15 +2,38 @@ import React from 'react';
 import './Certificate.css'; // Make sure to place your CSS file in the same directory as this component or adjust the path accordingly
 import NameInputForm from '../Forms/NameInputForm';
 import { useState } from 'react';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+
 function Certificate() {
     const [studentName, setStudentName] = useState('Student Name'); // Initialize studentName state
 
     // Callback function to update studentName
     const handleNameChange = (newName) => {
       setStudentName(newName);
-    };
+    }; 
+
+    // Function to download the certificate as a PDF
+const downloadCertificateAsPdf = () => {
+    // Capture the certificate container as an image
+    const certificateContainer = document.querySelector('.download-portion');
+  
+    html2canvas(certificateContainer, { scrollY: -window.scrollY }).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF( );
+      const width = pdf.internal.pageSize.getWidth();
+      const height = (canvas.height * width) / canvas.width;
+  
+      pdf.addImage(imgData, 'PNG', 0, 0, width, height);
+      pdf.save('certificate.pdf');
+    });
+  };
+  
+
     return (
+
         <div className="certificate-container">
+            <div className="download-portion">
             <div className="certificate">
                 <div className="water-mark-overlay"></div>
                 <div className="certificate-header">
@@ -54,7 +77,10 @@ function Certificate() {
                     </div>
                 </div>
             </div>
+            </div>
+            <button onClick={downloadCertificateAsPdf} className="submit-button" >Download PDF</button>
             <NameInputForm onNameChange={handleNameChange} />
+
 
         </div>
     );

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css'; // Import your CSS file for styling
+import Certificate from '../Certificate/Certificate';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -18,7 +20,10 @@ const Login = () => {
     e.preventDefault();
     // Add your login or sign-up logic here (e.g., API requests, validation)
     if (isLogin) {
-      console.log('Login button clicked');
+      console.log("Clicked")
+      return (
+            <Certificate />
+      );
     } else {
       // Open the default email client with a new email to your address
       window.location.href = 'mailto:kishorebobby7914@gmail.com?subject=Sign%20Up%20Request&body=Please%20attach%20the%20necessary%20documents%20here.';
@@ -56,12 +61,16 @@ const Login = () => {
             className="form-input"
           />
         </div>
-        <button type="submit" className="login-button">
-          {isLogin ? 'Login' : 'Sign Up'}
-        </button>
+        <Link to="/certificates">
+  <button type="submit" className="login-button">
+    {isLogin ? 'Login' : 'Sign Up'}
+  </button>
+</Link>
+
       </form>
       <p>
         {isLogin ? "Don't have an account?" : 'Already have an account?'}
+        
         <button className="toggle-button" onClick={toggleForm}>
           {isLogin ? 'Sign Up' : 'Login'}
         </button>
